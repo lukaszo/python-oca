@@ -48,6 +48,84 @@
             
   <div class="section" id="oca-user">
 <span id="user-module"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">oca.user</span></tt><a class="headerlink" href="#oca-user" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="oca.User">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">User</tt><big>(</big><em>xml</em>, <em>client</em><big>)</big><a class="headerlink" href="#oca.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.PoolElement</span></tt></p>
+<dl class="staticmethod">
+<dt id="oca.User.allocate">
+<em class="property">static </em><tt class="descname">allocate</tt><big>(</big><em>client</em>, <em>user</em>, <em>password</em><big>)</big><a class="headerlink" href="#oca.User.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>allocates a new user in OpenNebula</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">user</span></tt></dt>
+<dd>username for the new user</dd>
+<dt><tt class="docutils literal"><span class="pre">password</span></tt></dt>
+<dd>password for the new user</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.User.change_passwd">
+<tt class="descname">change_passwd</tt><big>(</big><em>new_password</em><big>)</big><a class="headerlink" href="#oca.User.change_passwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the password for the given user.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">new_password</span></tt></dt>
+<dd>The new password</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.User.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.User.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.User.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.User.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes current object from the pool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.User.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.User.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.User.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.User.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oca.UserPool">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">UserPool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.UserPool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
+<dl class="method">
+<dt id="oca.UserPool.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.UserPool.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.UserPool.factory">
+<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.UserPool.factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.UserPool.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.UserPool.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives/Refreshes pool information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.UserPool.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.UserPool.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 

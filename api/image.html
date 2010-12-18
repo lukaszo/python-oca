@@ -52,6 +52,149 @@
             
   <div class="section" id="oca-image">
 <span id="image-module"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">oca.image</span></tt><a class="headerlink" href="#oca-image" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="oca.Image">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">Image</tt><big>(</big><em>xml</em>, <em>client</em><big>)</big><a class="headerlink" href="#oca.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.PoolElement</span></tt></p>
+<dl class="staticmethod">
+<dt id="oca.Image.allocate">
+<em class="property">static </em><tt class="descname">allocate</tt><big>(</big><em>client</em>, <em>template</em><big>)</big><a class="headerlink" href="#oca.Image.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocates a new image in OpenNebula</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">client</span></tt></dt>
+<dd>oca.Client object</dd>
+<dt><tt class="docutils literal"><span class="pre">template</span></tt></dt>
+<dd>a string containing the template of the image</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes current object from the pool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables an image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables an image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.Image.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.Image.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.publish">
+<tt class="descname">publish</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.publish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Publishes an image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.rmattr">
+<tt class="descname">rmattr</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#oca.Image.rmattr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an image attribute</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">attr</span></tt></dt>
+<dd>the name of the attribute to remove</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.Image.short_state">
+<tt class="descname">short_state</tt><a class="headerlink" href="#oca.Image.short_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short string representation of image state.
+One of &#8216;init&#8217;, &#8216;rdy&#8217;, &#8216;used&#8217;, &#8216;disa&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.Image.short_type">
+<tt class="descname">short_type</tt><a class="headerlink" href="#oca.Image.short_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short string representation of image type.
+One of &#8216;OS&#8217;, &#8216;CD&#8217;, &#8216;DB&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.Image.str_state">
+<tt class="descname">str_state</tt><a class="headerlink" href="#oca.Image.str_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representation of image state.
+One of &#8216;INIT&#8217;, &#8216;READY&#8217;, &#8216;USED&#8217;, &#8216;DISABLED&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.Image.str_type">
+<tt class="descname">str_type</tt><a class="headerlink" href="#oca.Image.str_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representation of image type.
+One of &#8216;OS&#8217;, &#8216;CDROM&#8217;, &#8216;DATABLOCK&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.unpublish">
+<tt class="descname">unpublish</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.unpublish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpublishes an image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.update">
+<tt class="descname">update</tt><big>(</big><em>attr</em>, <em>value</em><big>)</big><a class="headerlink" href="#oca.Image.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies an image attribute</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">attr</span></tt></dt>
+<dd>the name of the attribute to update</dd>
+<dt><tt class="docutils literal"><span class="pre">value</span></tt></dt>
+<dd>the new value for the attribute</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oca.ImagePool">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">ImagePool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.ImagePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
+<dl class="method">
+<dt id="oca.ImagePool.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.ImagePool.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.ImagePool.factory">
+<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.ImagePool.factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.ImagePool.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.ImagePool.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives/Refreshes pool information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.ImagePool.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.ImagePool.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 

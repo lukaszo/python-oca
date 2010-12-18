@@ -52,6 +52,95 @@
             
   <div class="section" id="oca-cluster">
 <span id="cluster-module"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">oca.cluster</span></tt><a class="headerlink" href="#oca-cluster" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="oca.Cluster">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">Cluster</tt><big>(</big><em>xml</em>, <em>client</em><big>)</big><a class="headerlink" href="#oca.Cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.PoolElement</span></tt></p>
+<dl class="method">
+<dt id="oca.Cluster.add">
+<tt class="descname">add</tt><big>(</big><em>host_id</em><big>)</big><a class="headerlink" href="#oca.Cluster.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a host to a cluster.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">host_id</span></tt></dt>
+<dd>host id</dd>
+</dl>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="oca.Cluster.allocate">
+<em class="property">static </em><tt class="descname">allocate</tt><big>(</big><em>client</em>, <em>name</em><big>)</big><a class="headerlink" href="#oca.Cluster.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new cluster in the pool.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">client</span></tt></dt>
+<dd>oca.Client object</dd>
+<dt><tt class="docutils literal"><span class="pre">name</span></tt></dt>
+<dd>new cluster name</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Cluster.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Cluster.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.Cluster.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Cluster.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes current object from the pool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Cluster.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.Cluster.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.Cluster.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.Cluster.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.Cluster.remove">
+<tt class="descname">remove</tt><big>(</big><em>host_id</em><big>)</big><a class="headerlink" href="#oca.Cluster.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a host from its cluster.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">host_id</span></tt></dt>
+<dd>host id</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oca.ClusterPool">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">ClusterPool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.ClusterPool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
+<dl class="method">
+<dt id="oca.ClusterPool.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.ClusterPool.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.ClusterPool.factory">
+<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.ClusterPool.factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.ClusterPool.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.ClusterPool.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives/Refreshes pool information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.ClusterPool.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.ClusterPool.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 

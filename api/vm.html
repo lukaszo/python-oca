@@ -52,6 +52,204 @@
             
   <div class="section" id="oca-virtualmachine">
 <span id="virtualmachine-module"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">oca.virtualmachine</span></tt><a class="headerlink" href="#oca-virtualmachine" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="oca.VirtualMachine">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">VirtualMachine</tt><big>(</big><em>xml</em>, <em>client</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.PoolElement</span></tt></p>
+<dl class="staticmethod">
+<dt id="oca.VirtualMachine.allocate">
+<em class="property">static </em><tt class="descname">allocate</tt><big>(</big><em>client</em>, <em>template</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>allocates a virtual machine description from the given template string</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`template`</span></tt></dt>
+<dd>a string containing the template of the vm</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.cancel">
+<tt class="descname">cancel</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancels a running VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes current object from the pool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.deploy">
+<tt class="descname">deploy</tt><big>(</big><em>host_id</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.deploy" title="Permalink to this definition">¶</a></dt>
+<dd><p>initiates the instance of the given vmid on the target host</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`host_id`</span></tt></dt>
+<dd>the host id (hid) of the target host where the VM will be instantiated.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.finalize">
+<tt class="descname">finalize</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.finalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a VM from the pool and DB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.hold">
+<tt class="descname">hold</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.hold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a VM to hold state, scheduler will not deploy it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.live_migrate">
+<tt class="descname">live_migrate</tt><big>(</big><em>dest_host</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.live_migrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>live migrates virtual machine to the target host</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`dest_host`</span></tt></dt>
+<dd>the target host id</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.migrate">
+<tt class="descname">migrate</tt><big>(</big><em>dest_host</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.migrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>migrates virtual machine to the target host</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`dest_host`</span></tt></dt>
+<dd>the target host id</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.release">
+<tt class="descname">release</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases a VM from hold state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.restart">
+<tt class="descname">restart</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resubmits the VM after failure</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.resume">
+<tt class="descname">resume</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resumes the execution of a saved VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.save_disk">
+<tt class="descname">save_disk</tt><big>(</big><em>disk_id</em>, <em>dest_disk</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.save_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the disk to be saved in the given image</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`disk_id`</span></tt></dt>
+<dd>disk id of the disk we want to save</dd>
+<dt><tt class="docutils literal"><span class="pre">dest_disk</span></tt></dt>
+<dd>image id where the disk will be saved.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.VirtualMachine.short_lcm_state">
+<tt class="descname">short_lcm_state</tt><a class="headerlink" href="#oca.VirtualMachine.short_lcm_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short string representation of virtual machine LCM state.
+One of &#8216;init&#8217;, &#8216;prol&#8217;, &#8216;boot&#8217;, &#8216;runn&#8217;, &#8216;migr&#8217;, &#8216;save&#8217;, &#8216;save&#8217;, &#8216;save&#8217;, &#8216;migr&#8217;, &#8216;prol&#8217;,</p>
+<blockquote>
+&#8216;epil&#8217;, &#8216;epil&#8217;, &#8216;shut&#8217;, &#8216;shut&#8217;, &#8216;fail&#8217;, &#8216;dele&#8217;, &#8216;unkn&#8217;</blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.VirtualMachine.short_state">
+<tt class="descname">short_state</tt><a class="headerlink" href="#oca.VirtualMachine.short_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short string representation of virtual machine state.
+One of &#8216;init&#8217;, &#8216;pend&#8217;, &#8216;hold&#8217;, &#8216;actv&#8217;, &#8216;stop&#8217;, &#8216;susp&#8217;, &#8216;done&#8217;, &#8216;fail&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdowns an already deployed VM</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops a running VM</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.VirtualMachine.str_lcm_state">
+<tt class="descname">str_lcm_state</tt><a class="headerlink" href="#oca.VirtualMachine.str_lcm_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representation of virtual machine LCM state.
+One of &#8216;LCM_INIT&#8217;, &#8216;PROLOG&#8217;, &#8216;BOOT&#8217;, &#8216;RUNNING&#8217;, &#8216;MIGRATE&#8217;, &#8216;SAVE_STOP&#8217;, &#8216;SAVE_SUSPEND&#8217;,</p>
+<blockquote>
+&#8216;SAVE_MIGRATE&#8217;, &#8216;PROLOG_MIGRATE&#8217;, &#8216;PROLOG_RESUME&#8217;, &#8216;EPILOG_STOP&#8217;, &#8216;EPILOG&#8217;,
+&#8216;SHUTDOWN&#8217;, &#8216;CANCEL&#8217;, &#8216;FAILURE&#8217;, &#8216;DELETE&#8217;, &#8216;UNKNOWN&#8217;</blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oca.VirtualMachine.str_state">
+<tt class="descname">str_state</tt><a class="headerlink" href="#oca.VirtualMachine.str_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representation of virtual machine state.
+One of &#8216;INIT&#8217;, &#8216;PENDING&#8217;, &#8216;HOLD&#8217;, &#8216;ACTIVE&#8217;, &#8216;STOPPED&#8217;, &#8216;SUSPENDED&#8217;, &#8216;DONE&#8217;, &#8216;FAILED&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachine.suspend">
+<tt class="descname">suspend</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a running VM</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oca.VirtualMachinePool">
+<em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">VirtualMachinePool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
+<dl class="method">
+<dt id="oca.VirtualMachinePool.convert_types">
+<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.convert_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachinePool.factory">
+<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachinePool.info">
+<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives/Refreshes pool information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.VirtualMachinePool.initialize_xml">
+<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.initialize_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 
