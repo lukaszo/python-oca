@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>oca &mdash; oca v0.1-alfa documentation</title>
+    <title>oca &mdash; oca v3.0.0-alfa1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1-alfa',
+        VERSION:     '3.0.0-alfa1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="oca v0.1-alfa documentation" href="../index.html" />
+    <link rel="top" title="oca v3.0.0-alfa1 documentation" href="../index.html" />
     <link rel="up" title="Module code" href="index.html" /> 
   </head>
   <body>
@@ -32,7 +32,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -52,21 +52,23 @@
 
 <span class="kn">from</span> <span class="nn">host</span> <span class="kn">import</span> <span class="n">Host</span><span class="p">,</span> <span class="n">HostPool</span>
 <span class="kn">from</span> <span class="nn">vm</span> <span class="kn">import</span> <span class="n">VirtualMachine</span><span class="p">,</span> <span class="n">VirtualMachinePool</span>
-<span class="kn">from</span> <span class="nn">cluster</span> <span class="kn">import</span> <span class="n">Cluster</span><span class="p">,</span> <span class="n">ClusterPool</span>
 <span class="kn">from</span> <span class="nn">user</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">UserPool</span>
 <span class="kn">from</span> <span class="nn">image</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImagePool</span>
 <span class="kn">from</span> <span class="nn">vn</span> <span class="kn">import</span> <span class="n">VirtualNetwork</span><span class="p">,</span> <span class="n">VirtualNetworkPool</span>
+<span class="kn">from</span> <span class="nn">group</span> <span class="kn">import</span> <span class="n">Group</span><span class="p">,</span> <span class="n">GroupPool</span>
+<span class="kn">from</span> <span class="nn">template</span> <span class="kn">import</span> <span class="n">VmTemplate</span><span class="p">,</span> <span class="n">VmTemplatePool</span>
 <span class="kn">from</span> <span class="nn">exceptions</span> <span class="kn">import</span> <span class="n">OpenNebulaException</span>
 
 
+<span class="n">CONNECTED</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
 <span class="n">ALL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
-<span class="n">CONNECTED</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">CONNECTED_ADN_GROUP</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
 
 <div class="viewcode-block" id="Client"><a class="viewcode-back" href="../api/client.html#oca.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    The client class, represents the connection with the core and handles the</span>
-<span class="sd">    xml-rpc calls(see http://www.opennebula.org/documentation:rel2.0:api)</span>
+<span class="sd">    xml-rpc calls(see http://www.opennebula.org/documentation:rel3.0:api)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">DEFAULT_ONE_AUTH</span> <span class="o">=</span> <span class="s">&quot;~/.one/one_auth&quot;</span>
     <span class="n">ONE_AUTH_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;^(.+?):(.+)$&#39;</span><span class="p">)</span>
@@ -75,19 +77,13 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">secret</span><span class="p">:</span>
             <span class="n">one_secret</span> <span class="o">=</span> <span class="n">secret</span>
-        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&quot;ONE_AUTH&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;ONE_AUTH&quot;</span><span class="p">]:</span>
+        <span class="k">elif</span> <span class="s">&quot;ONE_AUTH&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;ONE_AUTH&quot;</span><span class="p">]:</span>
             <span class="n">one_auth</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;ONE_AUTH&quot;</span><span class="p">])</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">one_auth</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">one_auth</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">one_secret</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="k">finally</span><span class="p">:</span>
-                <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_ONE_AUTH</span><span class="p">)):</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_ONE_AUTH</span><span class="p">))</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_ONE_AUTH</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">one_secret</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="k">finally</span><span class="p">:</span>
-                <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">OpenNebulaException</span><span class="p">(</span><span class="s">&#39;ONE_AUTH file not present&#39;</span><span class="p">)</span>
 
@@ -106,7 +102,7 @@
 
         <span class="k">if</span> <span class="n">address</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">one_address</span> <span class="o">=</span> <span class="n">address</span>
-        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&quot;ONE_XMLRPC&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;ONE_XMLRPC&quot;</span><span class="p">]:</span>
+        <span class="k">elif</span> <span class="s">&quot;ONE_XMLRPC&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;ONE_XMLRPC&quot;</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">one_address</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;ONE_XMLRPC&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">one_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_ONE_ADDRESS</span>
@@ -130,20 +126,21 @@
             <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">one</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">one_auth</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">return_code</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">ret</span>
+                <span class="n">is_success</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">return_code</span> <span class="o">=</span> <span class="n">ret</span>
             <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-                <span class="n">return_code</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">is_success</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
             <span class="c">#connection error</span>
             <span class="k">raise</span> <span class="n">e</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">return_code</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_success</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">OpenNebulaException</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span>
 </div></div>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">Client</span><span class="p">,</span> <span class="n">OpenNebulaException</span><span class="p">,</span> <span class="n">Host</span><span class="p">,</span> <span class="n">HostPool</span><span class="p">,</span> <span class="n">VirtualMachine</span><span class="p">,</span>
-        <span class="n">VirtualMachinePool</span><span class="p">,</span> <span class="n">Cluster</span><span class="p">,</span> <span class="n">ClusterPool</span><span class="p">,</span> <span class="n">User</span><span class="p">,</span> <span class="n">UserPool</span><span class="p">,</span>
-        <span class="n">Image</span><span class="p">,</span> <span class="n">ImagePool</span><span class="p">,</span> <span class="n">VirtualNetwork</span><span class="p">,</span> <span class="n">VirtualNetworkPool</span><span class="p">,</span> <span class="n">ALL</span><span class="p">,</span> <span class="n">CONNECTED</span><span class="p">]</span>
+        <span class="n">VirtualMachinePool</span><span class="p">,</span> <span class="n">User</span><span class="p">,</span> <span class="n">UserPool</span><span class="p">,</span>
+        <span class="n">Image</span><span class="p">,</span> <span class="n">ImagePool</span><span class="p">,</span> <span class="n">VirtualNetwork</span><span class="p">,</span> <span class="n">VirtualNetworkPool</span><span class="p">,</span>
+        <span class="n">Group</span><span class="p">,</span> <span class="n">GroupPool</span><span class="p">,</span> <span class="n">VmTemplate</span><span class="p">,</span> <span class="n">VmTemplatePool</span><span class="p">,</span> <span class="n">ALL</span><span class="p">,</span> <span class="n">CONNECTED</span><span class="p">]</span>
 </pre></div>
 
           </div>
@@ -174,12 +171,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010, Łukasz Oleś.
+        &copy; Copyright 2010-2011, Łukasz Oleś.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>

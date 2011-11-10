@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>oca.host &mdash; oca v0.1-alfa documentation</title>
+    <title>oca.host &mdash; oca v3.0.0-alfa1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1-alfa',
+        VERSION:     '3.0.0-alfa1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="oca v0.1-alfa documentation" href="../index.html" />
+    <link rel="top" title="oca v3.0.0-alfa1 documentation" href="../index.html" />
     <link rel="up" title="API Documentation" href="../api.html" />
     <link rel="next" title="oca.image" href="image.html" />
     <link rel="prev" title="oca.Client" href="client.html" /> 
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="client.html" title="oca.Client"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="../api.html" accesskey="U">API Documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -74,11 +74,6 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="oca.Host.convert_types">
-<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Host.convert_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="oca.Host.delete">
 <tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Host.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes current object from the pool</p>
@@ -101,10 +96,18 @@
 <tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.Host.info" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="oca.Host.initialize_xml">
-<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.Host.initialize_xml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="classmethod">
+<dt id="oca.Host.new_with_id">
+<em class="property">classmethod </em><tt class="descname">new_with_id</tt><big>(</big><em>client</em>, <em>element_id</em><big>)</big><a class="headerlink" href="#oca.Host.new_with_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives object which id equals <tt class="docutils literal"><span class="pre">`id`</span></tt>.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`client`</span></tt></dt>
+<dd>oca.Client object.</dd>
+<dt><tt class="docutils literal"><span class="pre">`element_id</span></tt></dt>
+<dd>object id.</dd>
+</dl>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="oca.Host.short_state">
@@ -115,7 +118,8 @@
 <dl class="attribute">
 <dt id="oca.Host.str_state">
 <tt class="descname">str_state</tt><a class="headerlink" href="#oca.Host.str_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>String representation of host state. One of &#8216;INIT&#8217;, &#8216;MONITORING&#8217;, &#8216;MONITORED&#8217;, &#8216;ERROR&#8217;, &#8216;DISABLED&#8217;</p>
+<dd><p>String representation of host state.
+One of &#8216;INIT&#8217;, &#8216;MONITORING&#8217;, &#8216;MONITORED&#8217;, &#8216;ERROR&#8217;, &#8216;DISABLED&#8217;</p>
 </dd></dl>
 
 </dd></dl>
@@ -124,37 +128,6 @@
 <dt id="oca.HostPool">
 <em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">HostPool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.HostPool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
-<dl class="method">
-<dt id="oca.HostPool.convert_types">
-<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.HostPool.convert_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.HostPool.factory">
-<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.HostPool.factory" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.HostPool.get_by_id">
-<tt class="descname">get_by_id</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#oca.HostPool.get_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.HostPool.get_by_name">
-<tt class="descname">get_by_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#oca.HostPool.get_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.HostPool.info">
-<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.HostPool.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrives/Refreshes pool information</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="oca.HostPool.initialize_xml">
-<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.HostPool.initialize_xml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>
@@ -205,12 +178,12 @@
         <li class="right" >
           <a href="client.html" title="oca.Client"
              >previous</a> |</li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="../api.html" >API Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010, Łukasz Oleś.
+        &copy; Copyright 2010-2011, Łukasz Oleś.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>

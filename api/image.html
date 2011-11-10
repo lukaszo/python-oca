@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>oca.image &mdash; oca v0.1-alfa documentation</title>
+    <title>oca.image &mdash; oca v3.0.0-alfa1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1-alfa',
+        VERSION:     '3.0.0-alfa1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="oca v0.1-alfa documentation" href="../index.html" />
+    <link rel="top" title="oca v3.0.0-alfa1 documentation" href="../index.html" />
     <link rel="up" title="API Documentation" href="../api.html" />
     <link rel="next" title="oca.virtualnetwork" href="vn.html" />
     <link rel="prev" title="oca.host" href="host.html" /> 
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="host.html" title="oca.host"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="../api.html" accesskey="U">API Documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -70,9 +70,17 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="oca.Image.convert_types">
-<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.convert_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="oca.Image.chown">
+<tt class="descname">chown</tt><big>(</big><em>uid</em>, <em>gid</em><big>)</big><a class="headerlink" href="#oca.Image.chown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the owner/group</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">uid</span></tt></dt>
+<dd>New owner id. Set to -1 to leave current value</dd>
+<dt><tt class="docutils literal"><span class="pre">gid</span></tt></dt>
+<dd>New group id. Set to -1 to leave current value</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="oca.Image.delete">
@@ -97,10 +105,18 @@
 <tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.Image.info" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="oca.Image.initialize_xml">
-<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.Image.initialize_xml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="classmethod">
+<dt id="oca.Image.new_with_id">
+<em class="property">classmethod </em><tt class="descname">new_with_id</tt><big>(</big><em>client</em>, <em>element_id</em><big>)</big><a class="headerlink" href="#oca.Image.new_with_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives object which id equals <tt class="docutils literal"><span class="pre">`id`</span></tt>.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`client`</span></tt></dt>
+<dd>oca.Client object.</dd>
+<dt><tt class="docutils literal"><span class="pre">`element_id</span></tt></dt>
+<dd>object id.</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="oca.Image.publish">
@@ -109,14 +125,15 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="oca.Image.rmattr">
-<tt class="descname">rmattr</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#oca.Image.rmattr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes an image attribute</p>
-<p>Arguments</p>
-<dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">attr</span></tt></dt>
-<dd>the name of the attribute to remove</dd>
-</dl>
+<dt id="oca.Image.set_nonpersistent">
+<tt class="descname">set_nonpersistent</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.set_nonpersistent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Image as non persistent</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oca.Image.set_persistent">
+<tt class="descname">set_persistent</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.Image.set_persistent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Image as persistent</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -155,14 +172,12 @@ One of &#8216;OS&#8217;, &#8216;CDROM&#8217;, &#8216;DATABLOCK&#8217;</p>
 
 <dl class="method">
 <dt id="oca.Image.update">
-<tt class="descname">update</tt><big>(</big><em>attr</em>, <em>value</em><big>)</big><a class="headerlink" href="#oca.Image.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Modifies an image attribute</p>
+<tt class="descname">update</tt><big>(</big><em>template</em><big>)</big><a class="headerlink" href="#oca.Image.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the template contents</p>
 <p>Arguments</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">attr</span></tt></dt>
-<dd>the name of the attribute to update</dd>
-<dt><tt class="docutils literal"><span class="pre">value</span></tt></dt>
-<dd>the new value for the attribute</dd>
+<dt><tt class="docutils literal"><span class="pre">template</span></tt></dt>
+<dd>New template contents</dd>
 </dl>
 </dd></dl>
 
@@ -172,37 +187,6 @@ One of &#8216;OS&#8217;, &#8216;CDROM&#8217;, &#8216;DATABLOCK&#8217;</p>
 <dt id="oca.ImagePool">
 <em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">ImagePool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.ImagePool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
-<dl class="method">
-<dt id="oca.ImagePool.convert_types">
-<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.ImagePool.convert_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.ImagePool.factory">
-<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.ImagePool.factory" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.ImagePool.get_by_id">
-<tt class="descname">get_by_id</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#oca.ImagePool.get_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.ImagePool.get_by_name">
-<tt class="descname">get_by_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#oca.ImagePool.get_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.ImagePool.info">
-<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.ImagePool.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrives/Refreshes pool information</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="oca.ImagePool.initialize_xml">
-<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.ImagePool.initialize_xml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>
@@ -253,12 +237,12 @@ One of &#8216;OS&#8217;, &#8216;CDROM&#8217;, &#8216;DATABLOCK&#8217;</p>
         <li class="right" >
           <a href="host.html" title="oca.host"
              >previous</a> |</li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="../api.html" >API Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010, Łukasz Oleś.
+        &copy; Copyright 2010-2011, Łukasz Oleś.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>

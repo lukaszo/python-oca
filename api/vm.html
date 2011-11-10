@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>oca.virtualmachine &mdash; oca v0.1-alfa documentation</title>
+    <title>oca.virtualmachine &mdash; oca v3.0.0-alfa1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.1-alfa',
+        VERSION:     '3.0.0-alfa1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,10 +22,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="oca v0.1-alfa documentation" href="../index.html" />
+    <link rel="top" title="oca v3.0.0-alfa1 documentation" href="../index.html" />
     <link rel="up" title="API Documentation" href="../api.html" />
-    <link rel="next" title="oca.cluster" href="cluster.html" />
-    <link rel="prev" title="oca.virtualnetwork" href="vn.html" /> 
+    <link rel="prev" title="oca.template" href="template.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +34,9 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="cluster.html" title="oca.cluster"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="vn.html" title="oca.virtualnetwork"
+          <a href="template.html" title="oca.template"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="../api.html" accesskey="U">API Documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -62,7 +58,7 @@
 <dd><p>allocates a virtual machine description from the given template string</p>
 <p>Arguments</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">`template`</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">template</span></tt></dt>
 <dd>a string containing the template of the vm</dd>
 </dl>
 </dd></dl>
@@ -72,11 +68,6 @@
 <tt class="descname">cancel</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.cancel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancels a running VM</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="oca.VirtualMachine.convert_types">
-<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.convert_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="oca.VirtualMachine.delete">
@@ -90,8 +81,9 @@
 <dd><p>initiates the instance of the given vmid on the target host</p>
 <p>Arguments</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">`host_id`</span></tt></dt>
-<dd>the host id (hid) of the target host where the VM will be instantiated.</dd>
+<dt><tt class="docutils literal"><span class="pre">host_id</span></tt></dt>
+<dd>the host id (hid) of the target host where the VM will be
+instantiated.</dd>
 </dl>
 </dd></dl>
 
@@ -113,17 +105,12 @@
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="oca.VirtualMachine.initialize_xml">
-<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.initialize_xml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="oca.VirtualMachine.live_migrate">
 <tt class="descname">live_migrate</tt><big>(</big><em>dest_host</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.live_migrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>live migrates virtual machine to the target host</p>
 <p>Arguments</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">`dest_host`</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">dest_host</span></tt></dt>
 <dd>the target host id</dd>
 </dl>
 </dd></dl>
@@ -134,8 +121,21 @@
 <dd><p>migrates virtual machine to the target host</p>
 <p>Arguments</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">`dest_host`</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">dest_host</span></tt></dt>
 <dd>the target host id</dd>
+</dl>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="oca.VirtualMachine.new_with_id">
+<em class="property">classmethod </em><tt class="descname">new_with_id</tt><big>(</big><em>client</em>, <em>element_id</em><big>)</big><a class="headerlink" href="#oca.VirtualMachine.new_with_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives object which id equals <tt class="docutils literal"><span class="pre">`id`</span></tt>.</p>
+<p>Arguments</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">`client`</span></tt></dt>
+<dd>oca.Client object.</dd>
+<dt><tt class="docutils literal"><span class="pre">`element_id</span></tt></dt>
+<dd>object id.</dd>
 </dl>
 </dd></dl>
 
@@ -152,6 +152,12 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="oca.VirtualMachine.resubmit">
+<tt class="descname">resubmit</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.resubmit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redeploy the VM.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="oca.VirtualMachine.resume">
 <tt class="descname">resume</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachine.resume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resumes the execution of a saved VM</p>
@@ -163,7 +169,7 @@
 <dd><p>Sets the disk to be saved in the given image</p>
 <p>Arguments</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">`disk_id`</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">disk_id</span></tt></dt>
 <dd>disk id of the disk we want to save</dd>
 <dt><tt class="docutils literal"><span class="pre">dest_disk</span></tt></dt>
 <dd>image id where the disk will be saved.</dd>
@@ -174,16 +180,16 @@
 <dt id="oca.VirtualMachine.short_lcm_state">
 <tt class="descname">short_lcm_state</tt><a class="headerlink" href="#oca.VirtualMachine.short_lcm_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Short string representation of virtual machine LCM state.
-One of &#8216;init&#8217;, &#8216;prol&#8217;, &#8216;boot&#8217;, &#8216;runn&#8217;, &#8216;migr&#8217;, &#8216;save&#8217;, &#8216;save&#8217;, &#8216;save&#8217;, &#8216;migr&#8217;, &#8216;prol&#8217;,</p>
-<blockquote>
-&#8216;epil&#8217;, &#8216;epil&#8217;, &#8216;shut&#8217;, &#8216;shut&#8217;, &#8216;fail&#8217;, &#8216;dele&#8217;, &#8216;unkn&#8217;</blockquote>
+One of: init, prol, boot, runn, migr, save, save,
+save, migr, prol, epil, shut, shut, fail,
+dele, unkn</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="oca.VirtualMachine.short_state">
 <tt class="descname">short_state</tt><a class="headerlink" href="#oca.VirtualMachine.short_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Short string representation of virtual machine state.
-One of &#8216;init&#8217;, &#8216;pend&#8217;, &#8216;hold&#8217;, &#8216;actv&#8217;, &#8216;stop&#8217;, &#8216;susp&#8217;, &#8216;done&#8217;, &#8216;fail&#8217;</p>
+One of: init, pend, hold, actv, stop, susp, done, fail</p>
 </dd></dl>
 
 <dl class="method">
@@ -202,17 +208,18 @@ One of &#8216;init&#8217;, &#8216;pend&#8217;, &#8216;hold&#8217;, &#8216;actv&#
 <dt id="oca.VirtualMachine.str_lcm_state">
 <tt class="descname">str_lcm_state</tt><a class="headerlink" href="#oca.VirtualMachine.str_lcm_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>String representation of virtual machine LCM state.
-One of &#8216;LCM_INIT&#8217;, &#8216;PROLOG&#8217;, &#8216;BOOT&#8217;, &#8216;RUNNING&#8217;, &#8216;MIGRATE&#8217;, &#8216;SAVE_STOP&#8217;, &#8216;SAVE_SUSPEND&#8217;,</p>
-<blockquote>
-&#8216;SAVE_MIGRATE&#8217;, &#8216;PROLOG_MIGRATE&#8217;, &#8216;PROLOG_RESUME&#8217;, &#8216;EPILOG_STOP&#8217;, &#8216;EPILOG&#8217;,
-&#8216;SHUTDOWN&#8217;, &#8216;CANCEL&#8217;, &#8216;FAILURE&#8217;, &#8216;DELETE&#8217;, &#8216;UNKNOWN&#8217;</blockquote>
+One of: LCM_INIT, PROLOG, BOOT, RUNNING, MIGRATE,
+SAVE_STOP, SAVE_SUSPEND, SAVE_MIGRATE, PROLOG_MIGRATE,
+PROLOG_RESUME, EPILOG_STOP, EPILOG, SHUTDOWN, CANCEL,
+FAILURE, DELETE, UNKNOWN</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="oca.VirtualMachine.str_state">
 <tt class="descname">str_state</tt><a class="headerlink" href="#oca.VirtualMachine.str_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>String representation of virtual machine state.
-One of &#8216;INIT&#8217;, &#8216;PENDING&#8217;, &#8216;HOLD&#8217;, &#8216;ACTIVE&#8217;, &#8216;STOPPED&#8217;, &#8216;SUSPENDED&#8217;, &#8216;DONE&#8217;, &#8216;FAILED&#8217;</p>
+One of: INIT, PENDING, HOLD, ACTIVE, STOPPED, SUSPENDED,
+DONE, FAILED</p>
 </dd></dl>
 
 <dl class="method">
@@ -228,35 +235,34 @@ One of &#8216;INIT&#8217;, &#8216;PENDING&#8217;, &#8216;HOLD&#8217;, &#8216;ACT
 <em class="property">class </em><tt class="descclassname">oca.</tt><tt class="descname">VirtualMachinePool</tt><big>(</big><em>client</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">oca.pool.Pool</span></tt></p>
 <dl class="method">
-<dt id="oca.VirtualMachinePool.convert_types">
-<tt class="descname">convert_types</tt><big>(</big><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.convert_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.VirtualMachinePool.factory">
-<tt class="descname">factory</tt><big>(</big><em>xml</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.factory" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.VirtualMachinePool.get_by_id">
-<tt class="descname">get_by_id</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.get_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="oca.VirtualMachinePool.get_by_name">
-<tt class="descname">get_by_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.get_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="oca.VirtualMachinePool.info">
-<tt class="descname">info</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrives/Refreshes pool information</p>
+<tt class="descname">info</tt><big>(</big><em>filter=-3</em>, <em>range_start=-1</em>, <em>range_end=-1</em>, <em>vm_state=-1</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives/Refreshes virtual machine pool information</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">filter</span></tt></dt>
+<dd>Filter flag. By defaults retrives only connected user reources.</dd>
+<dt><tt class="docutils literal"><span class="pre">range_start</span></tt></dt>
+<dd>Range start ID. -1 for all</dd>
+<dt><tt class="docutils literal"><span class="pre">range_end</span></tt></dt>
+<dd>Range end ID. -1 for all</dd>
+</dl>
+<p><tt class="docutils literal"><span class="pre">vm_state</span></tt></p>
+<blockquote>
+<p>VM state to filter by.</p>
+<ul class="simple">
+<li>-2        Any state, including DONE</li>
+<li>-1        Any state, except DONE (Defualt)</li>
+<li>0  INIT</li>
+<li>1  PENDING</li>
+<li>2  HOLD</li>
+<li>3  ACTIVE</li>
+<li>4  STOPPED</li>
+<li>5  SUSPENDED</li>
+<li>6  DONE</li>
+<li>7  FAILED</li>
+</ul>
+</blockquote>
 </dd></dl>
-
-<dl class="method">
-<dt id="oca.VirtualMachinePool.initialize_xml">
-<tt class="descname">initialize_xml</tt><big>(</big><em>xml</em>, <em>root_element</em><big>)</big><a class="headerlink" href="#oca.VirtualMachinePool.initialize_xml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -269,11 +275,8 @@ One of &#8216;INIT&#8217;, &#8216;PENDING&#8217;, &#8216;HOLD&#8217;, &#8216;ACT
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="vn.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">oca.virtualnetwork</span></tt></a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="cluster.html"
-                        title="next chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">oca.cluster</span></tt></a></p>
+  <p class="topless"><a href="template.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">oca.template</span></tt></a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/api/vm.txt"
@@ -303,17 +306,14 @@ One of &#8216;INIT&#8217;, &#8216;PENDING&#8217;, &#8216;HOLD&#8217;, &#8216;ACT
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="cluster.html" title="oca.cluster"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="vn.html" title="oca.virtualnetwork"
+          <a href="template.html" title="oca.template"
              >previous</a> |</li>
-        <li><a href="../index.html">oca v0.1-alfa documentation</a> &raquo;</li>
+        <li><a href="../index.html">oca v3.0.0-alfa1 documentation</a> &raquo;</li>
           <li><a href="../api.html" >API Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010, Łukasz Oleś.
+        &copy; Copyright 2010-2011, Łukasz Oleś.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
