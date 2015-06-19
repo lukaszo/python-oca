@@ -1,3 +1,6 @@
+Warning, this project is not maintained anymore. If you are interested in OpenNebula python bindings see https://github.com/mattthias/python-oca-1
+===========================================================================================================================================================
+
 ##############################################
 OCA - OpenNebula Cloud Api
 ##############################################
